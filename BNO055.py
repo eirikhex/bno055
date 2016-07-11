@@ -3,29 +3,29 @@ import time
 import struct
 
 class BNO055:
-	BNO055_ADDRESS_A 				= 0x28
-	BNO055_ADDRESS_B 				= 0x29
-	BNO055_ID 		 			= 0xA0
+	BNO055_ADDRESS_A = 0x28
+	BNO055_ADDRESS_B = 0x29
+	BNO055_ID = 0xA0
 
 	# Power mode settings
-	POWER_MODE_NORMAL   				= 0X00
-	POWER_MODE_LOWPOWER 				= 0X01
-    	POWER_MODE_SUSPEND  				= 0X02
+	POWER_MODE_NORMAL         = 0X00
+	POWER_MODE_LOWPOWER       = 0X01
+	POWER_MODE_SUSPEND        = 0X02
 
 	# Operation mode settings
-	OPERATION_MODE_CONFIG 				= 0X00
-	OPERATION_MODE_ACCONLY 				= 0X01
-	OPERATION_MODE_MAGONLY 				= 0X02
-	OPERATION_MODE_GYRONLY 				= 0X03
-	OPERATION_MODE_ACCMAG 				= 0X04
-	OPERATION_MODE_ACCGYRO 				= 0X05
-	OPERATION_MODE_MAGGYRO 				= 0X06
-	OPERATION_MODE_AMG 				= 0X07
-	OPERATION_MODE_IMUPLUS 				= 0X08
-	OPERATION_MODE_COMPASS 				= 0X09
-	OPERATION_MODE_M4G 				= 0X0A
-	OPERATION_MODE_NDOF_FMC_OFF 			= 0X0B
-	OPERATION_MODE_NDOF 				= 0X0C
+	OPERATION_MODE_CONFIG       = 0X00
+	OPERATION_MODE_ACCONLY      = 0X01
+	OPERATION_MODE_MAGONLY      = 0X02
+	OPERATION_MODE_GYRONLY      = 0X03
+	OPERATION_MODE_ACCMAG       = 0X04
+	OPERATION_MODE_ACCGYRO 	    = 0X05
+	OPERATION_MODE_MAGGYRO 	    = 0X06
+	OPERATION_MODE_AMG          = 0X07
+	OPERATION_MODE_IMUPLUS 	    = 0X08
+	OPERATION_MODE_COMPASS 	    = 0X09
+	OPERATION_MODE_M4G          = 0X0A
+	OPERATION_MODE_NDOF_FMC_OFF = 0X0B
+	OPERATION_MODE_NDOF         = 0X0C
 
 	# Output vector type
 	VECTOR_ACCELEROMETER 				= 0x08
@@ -285,11 +285,11 @@ class BNO055:
 if __name__ == '__main__':
 	bno = BNO055()
 	if bno.begin() is not True:
-		print "Error initializing device"
+		print("Error initializing device")
 		exit()
 	time.sleep(1)
 	bno.setExternalCrystalUse(True)
 	while True:
-		print bno.getVector(BNO055.VECTOR_EULER)
+		print(bno.getCalibration())
 		time.sleep(0.01)
 
